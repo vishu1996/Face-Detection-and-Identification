@@ -23,7 +23,9 @@ To execute this project successfully, follow the steps below :
 5) Now for face identification, there are 3 steps :
      
      i) Registration of person's face
+     
      ii) Train PC to recognize faces
+     
      iii) Identify faces
      
 6) Registration of person's face :- Run "face_dataset_collection_live.py" and register your face by giving a user ID(say 1 or 2).
