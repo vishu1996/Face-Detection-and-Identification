@@ -2,19 +2,19 @@ import numpy as np
 
 import cv2
 
-face_cascade = cv2.CascadeClassifier('C:/Users/User/Desktop/New folder (2)/opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml')
+haar_cascade_face = cv2.CascadeClassifier('C:/Your_Opencv_file_path/opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml')
 
-eye_cascade = cv2.CascadeClassifier('C:/Users/User/Desktop/New folder (2)/opencv/sources/data/haarcascades/haarcascade_eye.xml')
+haar_cascade_eye = cv2.CascadeClassifier('C:/Your_Opencv_file_path/opencv/sources/data/haarcascades/haarcascade_eye.xml')
 
-cap = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0)
 
 while 1:
 
-    ret, img = cap.read()
+    ret, img = camera.read()
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-    faces = face_cascade.detectMultiScale(gray, 1.5, 5)
+    faces = haar_cascade_face.detectMultiScale(gray, 1.5, 5)
 
     for (x,y,w,h) in faces:
 
@@ -24,7 +24,7 @@ while 1:
 
         roi_color = img[y:y+h, x:x+w]
 
-        eyes = eye_cascade.detectMultiScale(roi_gray)
+        eyes = haar_cascade_eye.detectMultiScale(roi_gray)
 
         for (ex,ey,ew,eh) in eyes:
 
@@ -38,10 +38,10 @@ while 1:
 
     k = cv2.waitKey(30) & 0xff
 
-    if k == 27:
+    if k == 27:             #i.e. if pressed Esc button, then close
 
         break
 
-cap.release()
+camera.release()
 
 cv2.destroyAllWindows()
