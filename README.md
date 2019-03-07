@@ -7,9 +7,10 @@ To execute this project successfully, follow the steps below :
 
 1) Install python in PC.
 
-2) Install opencv using command prompt/terminal box
+2) Install opencv using command prompt/terminal box :
 
       "pip install opencv-python"
+      
       "pip install opencv-contrib-python"
       
 3) Download Opencv for haar cascade xml files.
@@ -29,8 +30,7 @@ To execute this project successfully, follow the steps below :
                                     The PC will take about 10 photos in one run, for the given ID.
 
 7) Train PC to recognize faces :- Run "face_recognition_train_and_create_object_file.py" and create a ".yml" object file that will
-                                  read all the faces in the existing dataset, and the file can be useful to identify faces.
-                                  
-                                  Then, edit "face_identification.py" and provide details to the corresponding ID of person.
+                                  read all the faces in the existing dataset, and the file can be useful to identify faces.Then, edit
+                                  "face_identification.py" and provide details to the corresponding ID of person.
                                   
 8) Identify faces :- Run "face_identification.py", and this project will run successfully.
