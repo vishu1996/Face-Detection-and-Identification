@@ -8,7 +8,7 @@ from PIL import Image # For face recognition we will the the LBPH Face Recognize
 
 recognizer = cv2.face.LBPHFaceRecognizer_create();
 
-path="C:/Users/User/Desktop/New folder (2)/face_dataset"
+path="C:/Your_face_dataset_path/face_dataset"
 
 def getImagesWithID(path):
 
@@ -20,23 +20,23 @@ def getImagesWithID(path):
 
     for imagePath in imagePaths:      
 
-  # Read the image and convert to grayscale
+  #convert the images to grayscale
 
         facesImg = Image.open(imagePath).convert('L')
 
-        faceNP = np.array(facesImg, 'uint8')
+        face_NP = np.array(facesImg, 'uint8')
 
-        # Get the label of the image
+        #Extract the label of image
 
         ID= int(os.path.split(imagePath)[-1].split(".")[1])
 
-         # Detect the face in the image
+        #Detect the face
 
-        faces.append(faceNP)
+        faces.append(face_NP)
 
         IDs.append(ID)
 
-        cv2.imshow("Adding faces for traning",faceNP)
+        cv2.imshow("Adding faces for traning",face_NP)
 
         cv2.waitKey(10)
 
@@ -46,6 +46,6 @@ Ids,faces  = getImagesWithID(path)
 
 recognizer.train(faces,Ids)
 
-recognizer.save("C:/Users/User/Desktop/New folder (2)/training_data_set/trainingdata.yml")
+recognizer.save("C:/Required_Destination_Path/trainingdata.yml")
 
 cv2.destroyAllWindows()
